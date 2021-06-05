@@ -22,4 +22,6 @@ class Buku extends Model
     * @var bool
     */
     public $timestamps = false;
+
+    protected $fillable = ['judul', 'tahun_terbit'];
 }

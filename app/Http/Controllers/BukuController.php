@@ -40,8 +40,8 @@ class BukuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'   => 'required',
-            'content' => 'required',
+            'judul'        => 'required',
+            'tahun_terbit' => 'required',
         ]);
 
         Buku::create($request->all());
@@ -80,11 +80,11 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Buku $buku)
     {
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'judul' => 'required',
+            'tahun_terbit' => 'required',
         ]);
 
         $buku->update($request->all());
