@@ -46,8 +46,8 @@
                         </div>
                         @endif
                         <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                            <a href="{{ route('buku.index') }}" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Batal</a>
-                            <button class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500" type="submit">Simpan</button>
+                            <a href="{{ route('buku.index') }}" class="transition duration-500 mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded hover:shadow-lg">Batal</a>
+                            <button class="transition duration-500 mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded hover:shadow-lg hover:bg-green-500" type="submit">Simpan</button>
                         </div>
                     </form>
                 </div>

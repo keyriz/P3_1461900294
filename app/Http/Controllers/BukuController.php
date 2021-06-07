@@ -12,13 +12,19 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $buku = Buku::all();
+        $buku = Buku::when($request->cari, function ($query) use ($request) {
+            $query
+            ->where('judul', 'like', "%{$request->cari}%");
+        })->paginate(5);
 
-        return view('buku.index',compact('buku'))
-                ->with('i', (request()
-                ->input('page', 1) - 1) * 5);
+        $buku->appends($request->only('cari'));
+
+        return view('buku.index', [
+            'buku' => $buku,
+        ])
+        ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -59,7 +65,7 @@ class BukuController extends Controller
      */
     public function show(Buku $buku)
     {
-        return view('buku.show',compact('buku'));
+        return view('buku.show', compact('buku'));
     }
 
     /**
@@ -70,7 +76,7 @@ class BukuController extends Controller
      */
     public function edit(Buku $buku)
     {
-        return view('buku.edit',compact('buku'));
+        return view('buku.edit', compact('buku'));
     }
 
     /**
@@ -83,7 +89,7 @@ class BukuController extends Controller
     public function update(Request $request, Buku $buku)
     {
         $request->validate([
-            'judul' => 'required',
+            'judul'        => 'required',
             'tahun_terbit' => 'required',
         ]);
 
