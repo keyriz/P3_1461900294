@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\JenisBukuController;
+use App\Http\Controllers\RakBukuController;
+use App\Http\Controllers\UserBukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +22,6 @@ Route::get('/', function () {
 });
 
 Route::resource('buku', BukuController::class);
+Route::resource('jenis_buku', JenisBukuController::class);
+Route::resource('rak_buku', RakBukuController::class);
+Route::resource('user', UserBukuController::class);
